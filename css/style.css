@@ -1,0 +1,358 @@
+/*-webkit-box-shadow: 6px 9px 4px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 6px 9px 4px 0px rgba(0,0,0,0.5);*/
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  font-family: "roboto", sans-serif;
+}
+
+h1 {
+  font-family: "Shrikhand", "cursive" sans-serif;
+}
+
+.btn {
+  background-color: .btn color-bg2;
+}
+
+.btn-new {
+  background-color: #99E2D0;
+}
+
+.fa-heart {
+  opacity: 1;
+  z-index: 2;
+  font-size: 1.2rem;
+}
+
+.fa-heart-invisible {
+  color: transparent;
+  opacity: 0;
+  z-index: 1;
+}
+
+header {
+  text-align: center;
+}
+header h1 {
+  color: black;
+  box-shadow: 0 5px 10px #eaeaea;
+  font-family: "Shrikhand", sans-serif;
+  font-size: 28px;
+  padding: 8px;
+}
+header .search-city {
+  display: flex;
+  background-color: #eaeaea;
+  padding: 12px;
+}
+header .search-city .gps {
+  width: 30%;
+  align-items: center;
+  text-align: right;
+}
+header .search-city input {
+  border: none;
+  background-color: #eaeaea;
+  text-align: left;
+  padding-left: 10px;
+  width: 70%;
+  color: black;
+  font-weight: bold;
+}
+header .search-button {
+  background-color: #f6f6f6;
+  padding: 38px;
+}
+header .search-button h2 {
+  font-size: 22px;
+  text-transform: lowercase;
+}
+header .search-button p {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  font-size: 18px;
+}
+header .search-button button {
+  margin: 18px;
+  padding: 14px;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px #eaeaea;
+  border: none;
+  color: white;
+  background: linear-gradient(#FF79DA, #9356DC);
+}
+
+.functioning {
+  margin: 40px 10px;
+  padding-bottom: 50px;
+  background-color: #fff;
+}
+.functioning h3 {
+  font-size: 22px;
+}
+.functioning ul li {
+  box-shadow: 0 5px 10px #eaeaea;
+  background-color: #f6f6f6;
+  padding: 24px;
+  margin: 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  position: relative;
+}
+.functioning ul li ::before {
+  content: "1";
+  background-color: #9356DC;
+  width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-radius: 50%;
+  font-family: roboto, sans-serif;
+  position: absolute;
+  top: 26px;
+  left: -14px;
+  color: white;
+  z-index: 0;
+}
+.functioning ul li .fas {
+  width: 16%;
+  text-align: center;
+  z-index: 1000;
+}
+
+.restaurants {
+  background-color: #f6f6f6;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  display: grid;
+  gap: 20px;
+  grid-template-rows: auto repeat(4, 250px);
+  grid-template-areas: "titre" "palette" "note" "francaise" "delice";
+}
+.restaurants .resto-title {
+  grid-area: titre;
+}
+.restaurants .palette {
+  grid-area: palette;
+}
+.restaurants .note {
+  grid-area: note;
+}
+.restaurants .francaise {
+  grid-area: francaise;
+}
+.restaurants .delice {
+  grid-area: delice;
+}
+.restaurants h3 {
+  font-size: 22px;
+}
+.restaurants .card {
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #eaeaea;
+}
+.restaurants figure {
+  position: relative;
+  box-shadow: 0 5px 10px #eaeaea;
+  border-radius: 20px;
+  height: 180px;
+}
+.restaurants .new {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: #99E2D0;
+  padding: 4px;
+  font-weight: bold;
+}
+.restaurants figcaption {
+  height: 40%;
+  background-color: white;
+  border-radius: 0 0 20px 20px;
+  color: black;
+  padding: 10px;
+  position: relative;
+}
+.restaurants figcaption h4 {
+  font-size: 17px;
+}
+.restaurants figcaption p {
+  font-size: 17px;
+}
+.restaurants figcaption .fa-heart {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 22px;
+}
+.restaurants img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+}
+
+footer {
+  background-color: #353535;
+  padding: 20px;
+}
+footer h4 {
+  padding-bottom: 16px;
+  font-family: "shrikhand";
+  font-weight: 500;
+}
+footer .fas {
+  width: 20px;
+}
+footer a {
+  color: white;
+}
+footer .fa-hands-helping {
+  font-size: 0.7rem;
+}
+
+body {
+  width: 100vw;
+}
+body .loader-container {
+  width: 100%;
+  height: 100%;
+}
+body .loader-container .loader {
+  display: block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9356DC;
+  animation: spinner 13s linear infinite;
+}
+body .loader-container::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #FF79DA;
+  animation: spinner 12s linear infinite;
+}
+body .loader-container::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #99E2D0;
+  animation: spinner 10s linear infinite;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (min-width: 768px) {
+  body .loader-container {
+    grid-template-columns: repeat 1fr, 2fr;
+    grid-template-rows: repeat 3, 400px;
+    grid-template-areas: "header header" "functioning restaurants" "footer footer";
+  }
+}
+
+h2 {
+  text-transform: uppercase;
+}
+h2 span {
+  border-bottom: 2px solid #99E2D0;
+}
+
+.resto__header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+main {
+  background-color: #f6f6f6;
+  border-radius: 10%;
+}
+
+.resto__name {
+  position: relative;
+}
+
+.fa-heart {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.progress {
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 1000ms cubic-bezier(0.32, 0, 0.07, 1);
+}
+
+article {
+  padding: 20px;
+}
+article li {
+  border: 1px solid transparent;
+  box-shadow: 0 5px 10px #eaeaea;
+  padding: 6px;
+  border-radius: 12px;
+  position: relative;
+  margin-top: 10px;
+  background-color: #fff;
+}
+article li .choice {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+article li .choice:hover {
+  width: 70%;
+}
+article li .choice .price {
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-weight: bold;
+}
+article li .fa-check {
+  width: 0;
+  display: inline-block;
+  position: absolute;
+}
+article li .fa-check:hover {
+  width: 30%;
+}
+article li h3 {
+  font-size: 15px;
+}
+article li p {
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+article li:hover + .progress {
+  transform: scaleX(1);
+}
+
+/*# sourceMappingURL=style.css.map */
