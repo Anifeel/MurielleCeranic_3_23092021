@@ -46,7 +46,7 @@ header .search-city {
   padding: 12px;
 }
 header .search-city .gps {
-  width: 30%;
+  width: 40%;
   align-items: center;
   text-align: right;
 }
@@ -55,13 +55,22 @@ header .search-city input {
   background-color: #eaeaea;
   text-align: left;
   padding-left: 10px;
-  width: 70%;
+  width: 60%;
   color: black;
   font-weight: bold;
 }
 header .search-button {
   background-color: #f6f6f6;
   padding: 38px;
+  /* button {
+       margin: 18px;
+       padding: 14px;            
+       border-radius: 30px;
+       box-shadow: $box-shadow;
+       border: none;
+       color: white;
+       background: linear-gradient($color-secondary, $color-primary);
+   } */
 }
 header .search-button h2 {
   font-size: 22px;
@@ -72,14 +81,10 @@ header .search-button p {
   margin-bottom: 14px;
   font-size: 18px;
 }
-header .search-button button {
-  margin: 18px;
-  padding: 14px;
-  border-radius: 30px;
-  box-shadow: 0 5px 10px #eaeaea;
-  border: none;
-  color: white;
-  background: linear-gradient(#FF79DA, #9356DC);
+@media screen and (min-width: 520px) {
+  header {
+    height: 330px;
+  }
 }
 
 .functioning {
@@ -120,6 +125,11 @@ header .search-button button {
   width: 16%;
   text-align: center;
   z-index: 1000;
+}
+@media screen and (min-width: 520px) {
+  .functioning {
+    height: 370px;
+  }
 }
 
 .restaurants {
@@ -194,6 +204,20 @@ header .search-button button {
   border-radius: 20px 20px 0 0;
   object-fit: cover;
 }
+@media screen and (min-width: 520px) {
+  .restaurants {
+    height: 650px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "titre titre" "palette note" "francaise delice";
+  }
+}
+@media screen and (min-width: 1024px) {
+  .restaurants {
+    height: 400px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "titre titre titre titre" "palette note francaise delice";
+  }
+}
 
 footer {
   background-color: #353535;
@@ -213,9 +237,110 @@ footer a {
 footer .fa-hands-helping {
   font-size: 0.7rem;
 }
+@media screen and (min-width: 940px) {
+  footer ul {
+    display: flex;
+    justify-content: space-around;
+  }
+}
 
 body {
   width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  /*@media screen and (min-width: 520px) {             
+      grid-template-columns: 1fr 2fr;
+
+      .loader {
+          grid-area: loader;
+      }
+      header {
+          grid-area: header;
+      }
+
+      .functioning {
+          grid-area: functioning;
+      }
+
+      .restaurants {
+          grid-area: restaurants;
+      }
+
+      .resto-title {
+          grid-area: titre;
+      }
+
+      .palette {
+          grid-area: palette;
+      }
+
+      .note {
+          grid-area: note;
+      }
+
+      .francaise {
+          grid-area: francaise;
+      }
+
+      .delice {
+          grid-area: delice;
+      }
+
+      footer {
+          grid-area: footer;
+      }
+      grid-template-areas:            
+          "loader loader"
+          "header header"
+          "functioning functioning"
+          "titre titre"
+          "palette note"
+          "francaise delice"
+          "footer footer";        
+  }
+
+  @media screen and (min-width: 992px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      .loader {
+          grid-area: loader;
+      }
+      header {
+          grid-area: header;
+      }
+
+      .functioning {
+          grid-area: functioning;
+      }
+
+      .restaurants {
+          grid-area: restaurants;
+      }
+
+      .palette {
+          grid-area: palette;
+      }
+
+      .note {
+          grid-area: note;
+      }
+
+      .francaise {
+          grid-area: francaise;
+      }
+
+      .delice {
+          grid-area: delice;
+      }
+
+      footer {
+          grid-area: footer;
+      }
+      grid-template-areas: 
+          "header header header"
+          "functioning palette note"
+          "functioning francaise delice"        
+          "footer footer footer";        
+  } */
 }
 body .loader-container {
   width: 100%;
@@ -271,13 +396,6 @@ body .loader-container::after {
     transform: rotate(360deg);
   }
 }
-@media screen and (min-width: 768px) {
-  body .loader-container {
-    grid-template-columns: repeat 1fr, 2fr;
-    grid-template-rows: repeat 3, 400px;
-    grid-template-areas: "header header" "functioning restaurants" "footer footer";
-  }
-}
 
 section h2 {
   text-transform: uppercase;
@@ -302,7 +420,9 @@ main {
   display: flex;
   background-color: #f6f6f6;
   border-radius: 20px 20px 0 0;
-  z-index: 100;
+  /* h1 {
+       background-color: $color-bg2;
+   } */
 }
 
 .fa-heart {
@@ -390,6 +510,55 @@ button {
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
   padding: 14px 40px;
+}
+
+@media screen and (min-width: 520px) {
+  body {
+    display: grid;
+    grid-template-columns: repeat 3, 1fr;
+    grid-template-areas: "resto__header resto__header resto__header" "main__header main__header main__header" "starter dish dessert" "order order order" "footer footer footer";
+  }
+  body .resto__header {
+    grid-area: resto__header;
+  }
+  body .main__header {
+    grid-area: main__header;
+  }
+  body .starter {
+    grid-area: starter;
+  }
+  body .dish {
+    grid-area: dish;
+  }
+  body .dessert {
+    grid-area: dessert;
+  }
+  body .order {
+    grid-area: order;
+  }
+  body footer {
+    grid-area: footer;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  section {
+    display: grid;
+    grid-template-columns: repeat 3, 1fr;
+    grid-template-areas: "starter dish dessert" "order order order";
+  }
+  section .starter {
+    grid-area: starter;
+  }
+  section .dish {
+    grid-area: dish;
+  }
+  section .dessert {
+    grid-area: dessert;
+  }
+  section .order {
+    grid-area: order;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
