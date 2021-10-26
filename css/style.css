@@ -140,6 +140,21 @@ header .search-button p {
   gap: 20px;
   grid-template-rows: auto repeat(4, 250px);
   grid-template-areas: "titre" "palette" "note" "francaise" "delice";
+  /*   @media screen and (min-width: 520px) {
+         height: 650px;
+         grid-template-columns: 1fr 1fr;
+         grid-template-areas: 
+             "titre titre"
+             "palette note"
+             "francaise delice";
+     } */
+  /*  @media screen and (min-width: 1024px) {
+        height: 400px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+            "titre titre titre titre"
+            "palette note francaise delice";
+    } */
 }
 .restaurants .resto-title {
   grid-area: titre;
@@ -204,20 +219,6 @@ header .search-button p {
   border-radius: 20px 20px 0 0;
   object-fit: cover;
 }
-@media screen and (min-width: 520px) {
-  .restaurants {
-    height: 650px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "titre titre" "palette note" "francaise delice";
-  }
-}
-@media screen and (min-width: 1024px) {
-  .restaurants {
-    height: 400px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "titre titre titre titre" "palette note francaise delice";
-  }
-}
 
 footer {
   background-color: #353535;
@@ -248,22 +249,16 @@ body {
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
+  /*creation loader*/
   /*@media screen and (min-width: 520px) {             
       grid-template-columns: 1fr 2fr;
 
-      .loader {
-          grid-area: loader;
-      }
       header {
           grid-area: header;
       }
 
       .functioning {
           grid-area: functioning;
-      }
-
-      .restaurants {
-          grid-area: restaurants;
       }
 
       .resto-title {
@@ -289,8 +284,7 @@ body {
       footer {
           grid-area: footer;
       }
-      grid-template-areas:            
-          "loader loader"
+      grid-template-areas:             
           "header header"
           "functioning functioning"
           "titre titre"
@@ -301,20 +295,14 @@ body {
 
   @media screen and (min-width: 992px) {
       grid-template-columns: 1fr 1fr 1fr;
-      .loader {
-          grid-area: loader;
-      }
+
       header {
           grid-area: header;
       }
 
       .functioning {
           grid-area: functioning;
-      }
-
-      .restaurants {
-          grid-area: restaurants;
-      }
+      }    
 
       .palette {
           grid-area: palette;
@@ -342,29 +330,25 @@ body {
           "footer footer footer";        
   } */
 }
-body .loader-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body .loader-container .loader {
-  display: block;
-  position: relative;
-  text-align: center;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+body .loader {
+  width: 120px;
+  height: 120px;
   border: 3px solid transparent;
   border-top-color: #9356DC;
-  animation: spinner 9s linear infinite;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: spin 6s linear infinite;
 }
-body .loader-container::before {
+body .loader::before {
   content: "";
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   top: 5px;
   left: 5px;
   right: 5px;
@@ -372,13 +356,13 @@ body .loader-container::before {
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #FF79DA;
-  animation: spinner 7s linear infinite;
+  animation: spin 7s linear infinite;
 }
-body .loader-container::after {
+body .loader::after {
   content: "";
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   top: 15px;
   left: 15px;
   right: 15px;
@@ -386,9 +370,9 @@ body .loader-container::after {
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #99E2D0;
-  animation: spinner 8s linear infinite;
+  animation: spin 8s linear infinite;
 }
-@keyframes spinner {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -516,7 +500,7 @@ button {
   body {
     display: grid;
     grid-template-columns: repeat 3, 1fr;
-    grid-template-areas: "resto__header resto__header resto__header" "main__header main__header main__header" "starter dish dessert" "order order order" "footer footer footer";
+    grid-template-areas: "resto__header resto__header resto__header" "main__header main__header main__header" "starter dish dessert" ". order ." "footer footer footer";
   }
   body .resto__header {
     grid-area: resto__header;
@@ -545,7 +529,7 @@ button {
   section {
     display: grid;
     grid-template-columns: repeat 3, 1fr;
-    grid-template-areas: "starter dish dessert" "order order order";
+    grid-template-areas: "starter dish dessert" ". order .";
   }
   section .starter {
     grid-area: starter;
