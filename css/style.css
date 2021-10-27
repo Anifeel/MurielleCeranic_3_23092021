@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*-webkit-box-shadow: 6px 9px 4px 0px rgba(0,0,0,0.5);
 -moz-box-shadow: 6px 9px 4px 0px rgba(0,0,0,0.5);*/
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
@@ -18,16 +19,55 @@ h1 {
   background-color: #99E2D0;
 }
 
-.fa-heart {
-  opacity: 1;
-  z-index: 2;
-  font-size: 1.2rem;
+.card-heart {
+  width: 2rem;
+  height: 2rem;
+  border: 0 solid transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  /* &hover {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         opacity: 0;
+         content: "";
+         //transition: 500ms;
+         //background: linear-gradient(0deg,#9356dc,#ff79da);
+         background: linear-gradient(to bottom, pink 0%, violet 100%);
+         transition: all 700ms ease-out;
+   } */
 }
-
-.fa-heart-invisible {
+.card-heart .fa-heart {
+  font-size: 22px;
+}
+.card-heart .fa-heart:hover {
+  opacity: 0;
+  /*   width: 100%;
+  height: 100%;
+  opacity: 0;
+  content: "";
+  //background: linear-gradient(0deg,#9356dc,#ff79da);
+  background: linear-gradient(to bottom, pink 0%, violet 100%);
+  transition: all 700ms ease-out;
+  .fa-heart-invisible {
+        background-color: linear-gradient($color-primary);
+        opacity: 1; */
+}
+.card-heart .fa-heart:hover .fa-heart-invisible {
+  width: 100%;
+  height: 100%;
   color: transparent;
   opacity: 0;
-  z-index: 1;
+}
+.card-heart .fa-heart:hover .fa-heart-invisible:hover {
+  opacity: 1;
+  content: "";
+  transition: all 700ms ease-out;
+  background: linear-gradient(to bottom, pink 0%, violet 100%);
 }
 
 header {
@@ -42,20 +82,15 @@ header h1 {
 }
 header .search-city {
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #eaeaea;
   padding: 12px;
-}
-header .search-city .gps {
-  width: 40%;
-  align-items: center;
-  text-align: right;
 }
 header .search-city input {
   border: none;
   background-color: #eaeaea;
-  text-align: left;
   padding-left: 10px;
-  width: 60%;
   color: black;
   font-weight: bold;
 }
@@ -79,6 +114,7 @@ header .search-button button {
   border: none;
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
+  cursor: pointer;
 }
 @media screen and (min-width: 520px) {
   header {
@@ -87,18 +123,21 @@ header .search-button button {
 }
 
 .functioning {
-  padding: 50px 30px;
   background-color: #fff;
+  padding: 30px 0;
 }
 .functioning h3 {
   font-size: 22px;
+  padding-left: 15px;
 }
-.functioning ul {
+.functioning ol {
   display: grid;
   grid-template-rows: repeat 3, 80px;
   gap: 20px;
+  padding: 20px 30px;
+  counter-reset: li;
 }
-.functioning ul li {
+.functioning ol li {
   box-shadow: 0 5px 10px #eaeaea;
   background-color: #f6f6f6;
   padding: 24px;
@@ -106,13 +145,15 @@ header .search-button button {
   font-weight: 600;
   position: relative;
   display: flex;
+  justify-content: start;
   align-items: center;
+  counter-increment: li;
 }
-.functioning ul li:hover {
+.functioning ol li:hover {
   background-color: rgba(147, 86, 220, 0.1);
 }
-.functioning ul li ::before {
-  content: "1";
+.functioning ol li ::before {
+  content: counter(li);
   background-color: #9356DC;
   width: 1.6rem;
   height: 1.6rem;
@@ -123,9 +164,8 @@ header .search-button button {
   top: 26px;
   left: -14px;
   color: white;
-  z-index: 0;
 }
-.functioning ul li .fas {
+.functioning ol li .fas {
   width: 40px;
   text-align: center;
 }
@@ -203,18 +243,18 @@ header .search-button button {
   color: black;
   padding: 10px;
   position: relative;
+  /*   .fa-heart {
+         position: absolute; //?
+         top: 20px; //?
+         right: 20px; //?
+         font-size: 22px;               
+     }  // code copié dans components */
 }
 .restaurants figcaption h4 {
   font-size: 17px;
 }
 .restaurants figcaption p {
   font-size: 17px;
-}
-.restaurants figcaption .fa-heart {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 22px;
 }
 .restaurants img {
   width: 100%;
@@ -401,6 +441,7 @@ section button {
   border: none;
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
+  cursor: pointer;
   padding: 14px 40px;
 }
 section h2 {
@@ -430,49 +471,66 @@ section h2 span {
 }
 
 .resto__header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  position: relative;
+  padding: 10px 0;
+}
+.resto__header .fa-arrow-left {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
 }
 
 main {
   background-color: #f6f6f6;
   border-radius: 10%;
+  /*&__header img{
+      width: 100%;
+      max-width: 100%;
+      display: block;
+  } */
 }
 
 .resto__name {
   position: relative;
   display: flex;
   background-color: #f6f6f6;
-  border-radius: 20px 20px 0 0;
+  border-radius: 40px 40px 0 0;
+  height: 60px;
+  padding: 0 30px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -60px;
   /* h1 {
       background-color: $color-bg2;
   } */
 }
 
-.fa-heart {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
 article {
   padding: 20px;
+}
+article ul {
+  display: grid;
+  gap: 10px;
 }
 article li {
   border: 1px solid transparent;
   box-shadow: 0 5px 10px #eaeaea;
-  padding: 6px;
   border-radius: 12px;
   position: relative;
-  margin-top: 10px;
   background-color: #fff;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
 }
 article li .choice {
-  width: 100%;
+  width: 80%;
   animation-delay: 150ms;
-  display: inline-block;
-  vertical-align: middle;
+  position: relative;
 }
 article li .choice p {
   font-size: 12px;
@@ -494,10 +552,6 @@ article li .choice h3 {
   font-size: 15px;
 }
 article li .check {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
   height: 100%;
   width: 50px;
   display: flex;
@@ -506,24 +560,35 @@ article li .check {
   background-color: #99E2D0;
   transition-duration: 400ms;
   transform-origin: right;
-  transform: translateX(-10px);
+  transform: translateX(100%);
   border-radius: 0 12px 12px 0;
+  /*   .check {
+         position: absolute;
+         @include flex-center;
+         top: 0;
+         left: 100%;
+         width: 50px;
+         height: 100%;
+         background-color: $color-tertiary;
+         border-radius: 0 12px 12px 0;
+         color: white;
+         font-size: 20px;
+         transform-origin: right;
+         visibility: hidden;
+     }*/
 }
-article li .check .fa-check {
+article li .check .fa-check-circle {
   transform: translateX(0);
   transition: transform 300ms ease-out 100ms;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   color: #99E2D0;
+  color: red;
 }
-article li .check .fa-check:hover {
+article li .check .fa-check-circle:hover {
   transform: translateX(-20%) rotate(-360deg);
-  background-color: white;
   color: #99E2D0;
   border-radius: 50%;
   height: 50%;
@@ -533,32 +598,31 @@ article li .check .fa-check:hover {
   justify-content: center;
   align-items: center;
 }
-
 @media screen and (min-width: 520px) {
-  body {
+  article body {
     display: grid;
     grid-template-columns: repeat 3, 1fr;
     grid-template-areas: "resto__header resto__header resto__header" "main__header main__header main__header" "starter dish dessert" ". order ." "footer footer footer";
   }
-  body .resto__header {
+  article body .resto__header {
     grid-area: resto__header;
   }
-  body .main__header {
+  article body .main__header {
     grid-area: main__header;
   }
-  body .starter {
+  article body .starter {
     grid-area: starter;
   }
-  body .dish {
+  article body .dish {
     grid-area: dish;
   }
-  body .dessert {
+  article body .dessert {
     grid-area: dessert;
   }
-  body .order {
+  article body .order {
     grid-area: order;
   }
-  body footer {
+  article body footer {
     grid-area: footer;
   }
 }
