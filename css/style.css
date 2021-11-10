@@ -86,6 +86,11 @@ header .search-button button {
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
   cursor: pointer;
+  width: 203px;
+  transition: transform 300ms;
+}
+header .search-button button:hover {
+  transform: scale(1.1);
 }
 @media screen and (min-width: 520px) {
   header {
@@ -102,7 +107,7 @@ header .search-button button {
 }
 .functioning ol {
   display: grid;
-  grid-template-rows: repeat 3, 80px;
+  grid-template-rows: repeat(3, 80px);
   gap: 20px;
   padding: 20px 0 20px 13px;
   counter-reset: li;
@@ -133,7 +138,7 @@ header .search-button button {
   border-radius: 50%;
   font-family: roboto, sans-serif;
   position: absolute;
-  top: 26px;
+  top: 30px;
   left: -14px;
   color: white;
   font-size: 0.8rem;
@@ -380,6 +385,31 @@ body {
   }
 }
 
+section {
+  /*    @media screen and (min-width: 520px) {
+      display: grid;
+      grid-template-columns: repeat (3, 1fr);
+      grid-template-areas:
+          "starter dish dessert"
+          ". order .";
+
+      .starter {
+          grid-area: starter;
+      }
+
+      .dish {
+          grid-area: dish;
+      }
+
+      .dessert {
+          grid-area: dessert;
+      }
+
+      .order {
+          grid-area: order;
+      }
+  } */
+}
 section button {
   margin: 18px;
   padding: 14px;
@@ -389,7 +419,12 @@ section button {
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
   cursor: pointer;
+  width: 203px;
+  transition: transform 300ms;
   padding: 14px 40px;
+}
+section button:hover {
+  transform: scale(1.1);
 }
 section h2 {
   text-transform: uppercase;
@@ -398,25 +433,6 @@ section h2 {
 section h2 span {
   border-bottom: 2px solid #99E2D0;
   padding-bottom: 4px;
-}
-@media screen and (min-width: 520px) {
-  section {
-    display: grid;
-    grid-template-columns: repeat 3, 1fr;
-    grid-template-areas: "starter dish dessert" ". order .";
-  }
-  section .starter {
-    grid-area: starter;
-  }
-  section .dish {
-    grid-area: dish;
-  }
-  section .dessert {
-    grid-area: dessert;
-  }
-  section .order {
-    grid-area: order;
-  }
 }
 
 .resto__header {
@@ -450,9 +466,6 @@ main {
   align-items: center;
   justify-content: space-between;
   margin-top: -60px;
-  /*  h1 {
-          box-shadow: none;
-      } */
 }
 
 article {
@@ -469,16 +482,15 @@ article li {
   position: relative;
   background-color: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   overflow: hidden;
   cursor: pointer;
   width: 100%;
-  transition: transform 2s;
+  transition: transform 1s;
   -webkit-animation: progress 3s;
-}
-article li:current {
-  transform: translateY(10px);
+  -moz-animation: progress 3s;
+  animation: progress 3s forwards;
+  transform: translateY(20px);
 }
 @keyframes progress {
   from {
@@ -486,34 +498,18 @@ article li:current {
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
-}
-article li .check {
-  height: 100%;
-  transform: translateX(60px);
-  background-color: #99E2D0;
-  border-radius: 0 12px 12px 0;
-  transition: transform 500ms ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-article li .check i {
-  color: white;
-}
-article li .check.fa-check-circle {
-  display: inline-block;
-  transform: rotate(-360deg);
-  animation: rotate 500ms both;
-  width: 100%;
 }
 article li .choice {
   width: 100%;
   padding: 8px;
+  /*
   animation-delay: 150ms;
   animation: opacity 1s both;
+  */
   position: relative;
-  transition: all 500ms;
+  transition: all 2s;
 }
 article li .choice p {
   font-size: 12px;
@@ -521,7 +517,7 @@ article li .choice p {
   white-space: nowrap;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  transition: width 400ms text-overflow 400ms;
+  padding-right: 40px;
 }
 article li .choice .price {
   font-size: 12px;
@@ -529,14 +525,41 @@ article li .choice .price {
   right: 16px;
   bottom: 10px;
   font-weight: bold;
-  transition: transform 500ms ease-in-out;
 }
 article li .choice h3 {
   font-size: 15px;
 }
-article li .choice:hover + .check {
+article li .check {
+  height: 100%;
+  transform: translateX(60px);
+  background-color: #99E2D0;
+  border-radius: 0 12px 12px 0;
+  transition: all 2s;
+  width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article li .check i {
+  color: white;
+}
+article li:hover > span:nth-child(1) {
+  width: calc(100% - 60px);
+}
+article li:hover > span:nth-child(2) {
   transform: translateX(0);
   width: 60px;
+}
+article li:hover > span:nth-child(2) .fa-check-circle {
+  animation: rotate 2s;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 
 .order {
