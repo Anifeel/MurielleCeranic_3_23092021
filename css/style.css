@@ -92,11 +92,6 @@ header .search-button button {
 header .search-button button:hover {
   filter: brightness(1.1);
 }
-@media screen and (min-width: 520px) {
-  header {
-    height: 330px;
-  }
-}
 
 .functioning {
   background-color: #fff;
@@ -236,6 +231,25 @@ footer a {
 footer .fa-hands-helping {
   font-size: 0.7rem;
 }
+@media screen and (min-width: 768px) {
+  footer ul {
+    display: grid;
+    grid-template-columns: repeat 3, 1fr;
+    grid-template-areas: "proposer mentions ." "devenir contact .";
+  }
+  footer ul li:nth-child(1) {
+    grid-area: proposer;
+  }
+  footer ul li:nth-child(2) {
+    grid-area: devenir;
+  }
+  footer ul li:nth-child(3) {
+    grid-area: mentions;
+  }
+  footer ul li:nth-child(4) {
+    grid-area: contact;
+  }
+}
 @media screen and (min-width: 940px) {
   footer ul {
     display: flex;
@@ -243,95 +257,15 @@ footer .fa-hands-helping {
   }
 }
 
-body {
-  /*creation loader*/
-  /*@media screen and (min-width: 520px) {             
-      grid-template-columns: 1fr 2fr;
-
-      header {
-          grid-area: header;
-      }
-
-      .functioning {
-          grid-area: functioning;
-      }
-
-      .resto-title {
-          grid-area: titre;
-      }
-
-      .palette {
-          grid-area: palette;
-      }
-
-      .note {
-          grid-area: note;
-      }
-
-      .francaise {
-          grid-area: francaise;
-      }
-
-      .delice {
-          grid-area: delice;
-      }
-
-      footer {
-          grid-area: footer;
-      }
-      grid-template-areas:             
-          "header header"
-          "functioning functioning"
-          "titre titre"
-          "palette note"
-          "francaise delice"
-          "footer footer";        
-  }
-
-  @media screen and (min-width: 992px) {
-      grid-template-columns: 1fr 1fr 1fr;
-
-      header {
-          grid-area: header;
-      }
-
-      .functioning {
-          grid-area: functioning;
-      }    
-
-      .palette {
-          grid-area: palette;
-      }
-
-      .note {
-          grid-area: note;
-      }
-
-      .francaise {
-          grid-area: francaise;
-      }
-
-      .delice {
-          grid-area: delice;
-      }
-
-      footer {
-          grid-area: footer;
-      }
-      grid-template-areas: 
-          "header header header"
-          "functioning palette note"
-          "functioning francaise delice"        
-          "footer footer footer";        
-  } */
-}
-body .loader-container {
+/*creation loader*/
+.loader-container {
   position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
 }
-body .loader {
+
+.loader {
   width: 120px;
   height: 120px;
   border: 5px solid transparent;
@@ -343,9 +277,9 @@ body .loader {
   bottom: 5px;
   left: 5px;
   right: 5px;
-  animation: spin 4s linear infinite;
+  animation: spin 4s linear 3s;
 }
-body .loader::before {
+.loader::before {
   content: "";
   position: absolute;
   width: 110px;
@@ -357,9 +291,9 @@ body .loader::before {
   border-radius: 50%;
   border: 5px solid transparent;
   border-top-color: #FF79DA;
-  animation: spin 2s linear infinite;
+  animation: spin 2s linear 3s;
 }
-body .loader::after {
+.loader::after {
   content: "";
   position: absolute;
   width: 100px;
@@ -371,8 +305,9 @@ body .loader::after {
   border-radius: 50%;
   border: 5px solid transparent;
   border-top-color: #99E2D0;
-  animation: spin 3s linear infinite;
+  animation: spin 3s linear 3s;
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -381,7 +316,56 @@ body .loader::after {
     transform: rotate(360deg);
   }
 }
+@media screen and (min-width: 940px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "header-home header-home" "main main" "footer footer";
+  }
+  body .header-home {
+    grid-area: header-home;
+  }
+  body .functioning {
+    grid-area: functioning;
+  }
+  body .restaurants {
+    grid-area: restaurants;
+  }
+  body footer {
+    grid-area: footer;
+  }
+  body main {
+    grid-area: main;
+  }
 
+  main {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: "functioning restaurants";
+  }
+
+  .functioning h3 {
+    margin-bottom: 80px;
+  }
+  .functioning ol {
+    gap: 120px;
+  }
+}
+@media screen and (min-width: 1070px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "functioning" "restaurants";
+  }
+  main .functioning ol {
+    display: flex;
+  }
+  main .restaurants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "resto-title ." "palette note" "francaise delice";
+  }
+}
 section {
   /*    @media screen and (min-width: 520px) {
       display: grid;
