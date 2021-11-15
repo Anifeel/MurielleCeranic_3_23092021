@@ -1,13 +1,13 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 body {
   font-family: "roboto", sans-serif;
 }
 
-h1 {
-  font-family: "Shrikhand", "cursive" sans-serif;
-}
-
+/*h1 {
+  font-family: 'Shrikhand', 'cursive' sans-serif;
+}*/
 .btn {
   background-color: .btn color-bg2;
 }
@@ -45,7 +45,7 @@ i.fa-heart-hidden:hover {
 header {
   text-align: center;
 }
-header h1 {
+header a > h1 {
   color: black;
   font-family: "Shrikhand", sans-serif;
   font-size: 28px;
@@ -78,16 +78,15 @@ header .search-button p {
   font-size: 18px;
 }
 header .search-button button {
-  margin: 18px;
-  padding: 14px;
   border-radius: 30px;
   box-shadow: 0 5px 10px #eaeaea;
   border: none;
   color: white;
   background: linear-gradient(#FF79DA, #9356DC);
   cursor: pointer;
-  width: 203px;
   transition: transform 300ms;
+  margin: 18px auto;
+  padding: 15px 20px;
 }
 header .search-button button:hover {
   filter: brightness(1.1);
@@ -104,6 +103,11 @@ header .search-button button:hover {
 .functioning {
   background-color: #fff;
   padding: 30px;
+}
+@media screen and (min-width: 1070px) {
+  .functioning {
+    border-radius: 20px;
+  }
 }
 .functioning h3 {
   font-size: 22px;
@@ -122,15 +126,16 @@ header .search-button button:hover {
 }
 @media screen and (min-width: 940px) {
   .functioning ol {
-    grid-template-columns: 1fr;
-    display: flex;
-    justify-content: space-around;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 40px;
   }
 }
 @media screen and (min-width: 1070px) {
   .functioning ol {
-    display: grid;
-    gap: 80px;
+    grid-template-rows: repeat(3, 80px);
+    grid-template-columns: 1fr;
+    grid-gap: 80px;
   }
 }
 .functioning ol li {
@@ -143,6 +148,7 @@ header .search-button button:hover {
   display: flex;
   align-items: center;
   counter-increment: li;
+  /* 1 2 3 */
 }
 .functioning ol li:nth-child(3) {
   background-color: rgba(147, 86, 220, 0.1);
@@ -356,6 +362,12 @@ footer .fa-hands-helping {
     z-index: -1;
   }
 }
+@media screen and (min-width: 1220px) {
+  main {
+    padding: 0 0 30px 30px;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   .restaurants {
     /*
@@ -382,7 +394,7 @@ footer .fa-hands-helping {
     grid-area: delice;
   }
 }
-@media screen and (min-width: 520px) {
+@media screen and (min-width: 600px) {
   .resto-main {
     display: grid;
     grid-template-columns: repeat 2, 1fr;
@@ -391,60 +403,12 @@ footer .fa-hands-helping {
   .resto-main .main__header {
     grid-area: main__header;
   }
+  .resto-main .main__header img {
+    max-height: 450px;
+    object-fit: cover;
+  }
   .resto-main .resto__section {
     grid-area: resto__section;
-  }
-}
-
-.resto__section button {
-  margin: 18px;
-  padding: 14px;
-  border-radius: 30px;
-  box-shadow: 0 5px 10px #eaeaea;
-  border: none;
-  color: white;
-  background: linear-gradient(#FF79DA, #9356DC);
-  cursor: pointer;
-  width: 203px;
-  transition: transform 300ms;
-  padding: 14px 40px;
-}
-.resto__section button:hover {
-  filter: brightness(1.1);
-}
-.resto__section h2 {
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.resto__section h2 span {
-  border-bottom: 2px solid #99E2D0;
-  padding-bottom: 4px;
-}
-@media screen and (min-width: 680px) {
-  .resto__section {
-    display: grid;
-    grid-template-columns: repeat 2, 1fr;
-    grid-template-areas: "starter dish" "dessert order";
-  }
-  .resto__section .starter {
-    grid-area: starter;
-  }
-  .resto__section .dish {
-    grid-area: dish;
-  }
-  .resto__section .dessert {
-    grid-area: dessert;
-  }
-  .resto__section .order {
-    grid-area: order;
-    height: 40px;
-  }
-}
-@media screen and (min-width: 1220px) {
-  .resto__section {
-    display: grid;
-    grid-template-columns: repeat 3, 1fr;
-    grid-template-areas: "starter dish dessert" ". order .";
   }
 }
 
@@ -474,19 +438,99 @@ main {
   display: flex;
   background-color: #f6f6f6;
   border-radius: 40px 40px 0 0;
-  height: 60px;
+  height: 62px;
   padding: 0 30px;
   align-items: center;
   justify-content: space-between;
   margin-top: -60px;
 }
+.resto__name .resto-h1 {
+  color: black;
+  font-family: "Shrikhand", sans-serif;
+  padding: 8px;
+  font-size: 23px;
+}
+@media screen and (min-width: 360px) {
+  .resto__name .resto-h1 {
+    font-size: 28px;
+  }
+}
 
+.resto__section {
+  /* version tablette */
+  /* version ordi */
+}
+.resto__section button {
+  border-radius: 30px;
+  box-shadow: 0 5px 10px #eaeaea;
+  border: none;
+  color: white;
+  background: linear-gradient(#FF79DA, #9356DC);
+  cursor: pointer;
+  transition: transform 300ms;
+  padding: 15px 60px;
+  margin: 0 auto;
+}
+.resto__section button:hover {
+  filter: brightness(1.1);
+}
+.resto__section h2 {
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.resto__section h2 span {
+  border-bottom: 2px solid #99E2D0;
+  padding-bottom: 4px;
+}
+@media screen and (min-width: 600px) {
+  .resto__section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "starter dish" "dessert order";
+    padding: 20px;
+    grid-gap: 20px;
+  }
+  .resto__section .starter {
+    grid-area: starter;
+  }
+  .resto__section .dish {
+    grid-area: dish;
+  }
+  .resto__section .dessert {
+    grid-area: dessert;
+  }
+  .resto__section .order {
+    grid-area: order;
+    height: 44px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .resto__section article {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1220px) {
+  .resto__section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "starter dish dessert" ". order .";
+  }
+}
+
+/* détail menus */
 article {
   padding: 20px;
 }
 article ul {
   display: grid;
   gap: 15px;
+}
+@media screen and (min-width: 1220px) {
+  article ul {
+    gap: 30px;
+  }
 }
 article li {
   border: 1px solid transparent;
@@ -531,6 +575,11 @@ article li .choice p {
   text-overflow: ellipsis;
   word-wrap: break-word;
   padding-right: 40px;
+}
+@media screen and (min-width: 600px) {
+  article li .choice p {
+    font-size: 11px;
+  }
 }
 article li .choice .price {
   font-size: 12px;
