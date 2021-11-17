@@ -8,10 +8,6 @@ body {
 /*h1 {
   font-family: 'Shrikhand', 'cursive' sans-serif;
 }*/
-.btn {
-  background-color: .btn color-bg2;
-}
-
 .btn-new {
   background-color: #99E2D0;
 }
@@ -24,13 +20,11 @@ body {
 }
 .fa-heart:hover + i.fa-heart-hidden {
   transition: all 400ms ease-out;
-  scale: 1;
   opacity: 1;
 }
 
 i.fa-heart-hidden {
   opacity: 0;
-  scale: 0;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -39,7 +33,6 @@ i.fa-heart-hidden {
 i.fa-heart-hidden:hover {
   transition: all 400ms ease-out;
   opacity: 1;
-  scale: 1;
 }
 
 header {
@@ -165,8 +158,9 @@ header .search-button button:hover {
   border-radius: 50%;
   font-family: roboto, sans-serif;
   position: absolute;
-  top: 30px;
-  left: -14px;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
   color: white;
   font-size: 0.8rem;
   display: flex;
@@ -175,7 +169,6 @@ header .search-button button:hover {
 }
 .functioning ol li .fas {
   width: 30px;
-  padding-left: 0 20px;
 }
 
 .restaurants {
@@ -273,7 +266,6 @@ footer .fa-hands-helping {
 @media screen and (min-width: 768px) {
   footer ul {
     display: grid;
-    grid-template-columns: repeat 3, 1fr;
     grid-template-areas: "proposer mentions ." "devenir contact .";
   }
   footer ul li:nth-child(1) {
@@ -397,7 +389,6 @@ footer .fa-hands-helping {
 @media screen and (min-width: 600px) {
   .resto-main {
     display: grid;
-    grid-template-columns: repeat 2, 1fr;
     grid-template-areas: "main__header main__header" "resto__section resto__section";
   }
   .resto-main .main__header {
@@ -533,7 +524,6 @@ article ul {
   }
 }
 article li {
-  border: 1px solid transparent;
   box-shadow: 0 5px 10px #eaeaea;
   border-radius: 12px;
   position: relative;
