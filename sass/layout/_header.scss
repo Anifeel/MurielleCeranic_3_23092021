@@ -1,0 +1,46 @@
+header {
+    text-align: center;
+
+    a > h1 {
+        color: black;
+        font-family: "Shrikhand", sans-serif;
+        font-size: 28px;
+        padding: 8px;
+    }
+
+    .search-city {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-bg1;
+        padding: 12px;
+
+        input {
+            border: none;
+            background-color: $color-bg1;
+            padding-left: 10px;
+            color: black;
+            font-weight: bold;
+        }
+    }
+
+    .search-button {
+        background-color: $color-bg2;
+        padding: 38px;
+        h2 {
+            font-size: 22px;
+        }
+
+        p {
+            margin-top: 10px;
+            margin-bottom: 14px;
+            font-size: 18px;
+        }
+
+        button {
+            @include button-color;
+            margin: 18px auto;
+            padding: 15px 20px;
+        }
+    }
+}

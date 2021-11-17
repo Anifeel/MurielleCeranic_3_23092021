@@ -1,0 +1,33 @@
+.btn {
+    background-color: &color-bg2;
+}
+
+.btn-new {
+    background-color: $color-tertiary;
+}
+
+.fa-heart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 22px;
+    &:hover + i.fa-heart-hidden {
+        transition: all 400ms ease-out;
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+i.fa-heart-hidden {
+    opacity: 0;
+    scale: 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: radial-gradient($color-primary, $color-secondary);
+    &:hover {
+        transition: all 400ms ease-out;
+        opacity: 1;
+        scale: 1;
+    }
+}

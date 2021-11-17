@@ -1,0 +1,18 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button-color {     
+    border-radius: 30px;
+    box-shadow: $box-shadow;
+    border: none;
+    color: white;
+    background: linear-gradient($color-secondary, $color-primary);
+    cursor: pointer;
+    transition: transform 300ms;
+        &:hover {
+            filter: brightness(1.1);   
+        }
+}
